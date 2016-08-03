@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/README.md" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/data/关键词词频.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/output/共词矩阵.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/output/关键词词频.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/output/关键词随时间变换.csv" charset="GBK" />
+  </component>
+</project>
