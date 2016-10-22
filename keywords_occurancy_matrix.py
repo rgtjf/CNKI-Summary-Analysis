@@ -22,7 +22,7 @@ def get_candinate(file_name=keywords_frequncy_file):
 
 def get_frequency_occurancy_matrix(data):
     indexer, cand = get_candinate()
-    Matrix = [ [ '' for _ in cand ] for _ in cand ]
+    Matrix = [ [ 0 for _ in cand ] for _ in cand ]
     for row in data:
         x = row['关键词']
         x = utils.fenci(x)
@@ -31,13 +31,13 @@ def get_frequency_occurancy_matrix(data):
         for idx in range(l):
             for idy in range(l):
                 if idx == idy:
+                    r = indexer[x[idx]]
+                    Matrix[r][r] = ''
                     continue
                 r = indexer[x[idx]]
                 c = indexer[x[idy]]
-                if Matrix[r][c] == '':
-                    Matrix[r][c] = 1
-                else:
-                    Matrix[r][c]  += 1
+                Matrix[r][c] += 1
+
     return cand, Matrix
 
 if __name__ == '__main__':
@@ -52,3 +52,10 @@ if __name__ == '__main__':
             row = [ t ]
             row += matrix[idx]
             writer.writerow(row)
+    with open(keywords_occurancy_tripe_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        n_cand = len(cand)
+        for idx in range(n_cand):
+            for idy in range(idx+1, n_cand):
+                row = [cand[idx], cand[idy], matrix[idx][idy]]
+                writer.writerow(row)

@@ -6,9 +6,10 @@ import utils
 import operator, csv
 
 
-year_range = range(2011, 2017)
+year_range = range(2000, 2017)
 
 def get_keywords_year(data):
+    from collections import OrderedDict
     dic = {}
     for year in year_range:
         dic[year] = {}
